@@ -1,0 +1,149 @@
+/* components/Loader.css */
+
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(15, 49, 95, 0.95), rgba(26, 71, 130, 0.95));
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.loader-spinner {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.loader-ring {
+    position: absolute;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid #fbbf24;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    animation: spin 2s linear infinite;
+}
+
+.loader-ring:nth-child(2) {
+    animation-delay: -0.67s;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+}
+
+.loader-ring:nth-child(3) {
+    animation-delay: -1.33s;
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+}
+
+.loader-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-key {
+    position: relative;
+    width: 24px;
+    height: 32px;
+    animation: keyPulse 2s ease-in-out infinite;
+}
+
+.key-head {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background: #fbbf24;
+    border-radius: 2px 8px 2px 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.key-shaft {
+    position: absolute;
+    top: 12px;
+    left: 6px;
+    width: 4px;
+    height: 16px;
+    background: #fbbf24;
+    border-radius: 2px;
+}
+
+.key-teeth {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.tooth {
+  width: 6px;
+  height: 2px;
+  background: #fbbf24;
+  border-radius: 1px;
+}
+
+.loader-message {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 0.5px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes keyPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .loader-spinner {
+    width: 100px;
+    height: 100px;
+  }
+
+  .loader-message {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
